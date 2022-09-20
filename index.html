@@ -17,7 +17,7 @@
       <!-- TODO: Buatlah sebuah input bertipe text dengan id todo-input -->
       <input id="todo-input" type="text">
             <!-- TODO: Buatlah sebuah button dengan id todo-submit -->
-      <button id="todo-submit" onclick="fnClickHandler()"> Submit </button>
+      <button id="todo-submit" > Submit </button>
       <!-- Section output -->
       <!-- TODO: Buatlah sebuah <ul> dengan id todo-output -->
       <ul id="todo-output" ></ul>
@@ -44,14 +44,25 @@
   
         document.getElementById("todo-input").value = "";
       
-       }
+      }
 
     
       // TODO: register event onclick / addEventListener untuk button
       // akan menjalankan fungsi fnClickHandler
-      
+      button.addEventListener("click", fnClickHandler)
+
       // TODO: register event onkeypress / addEventListener untuk input
       // sehingga saat di input ditekan enter akan menjalankan fungsi fnClickHandler juga
-         </script>
+      const keyPressHandler = (event) => {
+        
+        const keyCode = event.key;
+        if (keyCode === 'Enter') {
+          fnClickHandler();
+        }
+      }
+
+      document.addEventListener('keypress', keyPressHandler);
+
+    </script>
   </body>
 </html>
